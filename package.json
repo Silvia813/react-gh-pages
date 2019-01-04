@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "http://Silvia813.github.io/react-gh-pages",
   "dependencies": {
+    "immer": "^1.9.3",
+    "lodash-es": "^4.17.11",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
