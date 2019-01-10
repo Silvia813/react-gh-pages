@@ -6,7 +6,7 @@
 
 In this tutorial, I'll show you how I deployed a React app—which I created using `create-react-app`—to GitHub Pages.
 
-You can visit the deployed app, at [https://gitname.github.io/react-gh-pages/](https://gitname.github.io/react-gh-pages/).
+You can visit the deployed app, at [https://silvia813.github.io/react-gh-pages/](https://silvia813.github.io/react-gh-pages/).
 
 This repository contains the files related to the app. The `master` branch contains the app's source code (the code the app's developers edit), and the `gh-pages` branch contains a *built* version of the app (i.e. the code that GitHub Pages serves to the app's visitors).
 
@@ -61,7 +61,7 @@ The remainder of this document contains a tutorial on creating a React app (usin
     ```sh
     $ create-react-app react-gh-pages
     ```
-    
+
     * This is the app you will deploy to GitHub Pages in step 7.
     * I opted to give the app the same name as my GitHub repository (i.e. `react-gh-pages`). However, you can name them differently from one another (e.g. you can name your app `app-123` and your GitHub Repository `repo-456`).
     * This will create a new folder named `react-gh-pages` (or whatever you named your app) on your computer.
@@ -72,18 +72,18 @@ The remainder of this document contains a tutorial on creating a React app (usin
     $ cd react-gh-pages
     $ npm install gh-pages --save-dev
     ```
-    
+
     * The commands shown in the following steps can all be issued from within the app's folder.
 
 4. **Add some properties to the app's `package.json` file.** (3 minutes)
 
     * At the top level, add a `homepage` property. Define its value to be the string `http://{username}.github.io/{repo-name}`, where `{username}` is your GitHub username, and `{repo-name}` is the name of the GitHub repository you created in step 1. Since my GitHub username is `gitname` and the name of my GitHub repository is `react-gh-pages`, I added the following property:
-    
+
     ```js
     //...
     "homepage": "http://gitname.github.io/react-gh-pages"
     ```
-    
+
     * In the existing `scripts` property, add a `predeploy` property and a `deploy` property, each having the values shown below:
 
     ```js
@@ -93,15 +93,15 @@ The remainder of this document contains a tutorial on creating a React app (usin
       "deploy": "gh-pages -d build"
     }
     ```
-    
+
     * **Shortcut:** Instead of adding those properties using a text editor; if I have `sed` installed on my system, I can add the properties by issuing the following shell commands:
-    
+
     ```sh
     $ sed -i '5i\  "homepage": "http://gitname.github.io/react-gh-pages",' ./package.json
     $ sed -i '15i\    "predeploy": "npm run build",' ./package.json
     $ sed -i '16i\    "deploy": "gh-pages -d build",' ./package.json
     ```
-    
+
 5. **Create a git repository in the app's folder.** (1 minute)
 
     ```
@@ -114,7 +114,7 @@ The remainder of this document contains a tutorial on creating a React app (usin
     ```
     $ git remote add origin https://github.com/gitname/react-gh-pages.git
     ```
-    
+
     * This will make it so the `gh-pages` package knows where you want it to deploy your app in step 7.
     * It will also make it so git knows where you want it to push your source code (i.e. the commits on your `master` branch) in step 8.
 
@@ -123,7 +123,7 @@ The remainder of this document contains a tutorial on creating a React app (usin
     ```
     $ npm run deploy
     ```
-    
+
     * That's it! Your app is now accessible at the URL you specified in step 4.
     * In my case, my app is now accessible at: https://gitname.github.io/react-gh-pages/
     * I recommend exploring the GitHub repository at this point. When I explored it, I noticed that, although a `master` branch did not exist, a `gh-pages` branch did exist. I noticed the latter contained the *built* app code, as opposed to the app's source code.

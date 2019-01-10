@@ -2,8 +2,9 @@
   "name": "react-gh-pages",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://Silvia813.github.io/react-gh-pages",
+  "homepage": "https://silvia813.github.io/react-gh-pages",
   "dependencies": {
+    "classnames": "^2.2.6",
     "immer": "^1.9.3",
     "lodash-es": "^4.17.11",
     "react": "^15.5.4",
