@@ -3,7 +3,7 @@ import {remove, sample} from 'lodash-es'
 import './App.css';
 import immer from 'immer'
 import cls from 'classnames'
-import logo from './psb.jpeg'
+import logo from './logo.svg'
 import zh from './zh.jpg'
 import zyx from './zyx.jpg'
 import sx from './sx.jpg'
@@ -84,10 +84,10 @@ export default class Home extends Component {
     const gift = sample(prizePool.filter(i => i !== name))
     this.setState(
       immer(state => {
+        state.currentGift = gift
         remove(state.prizePool, i => i === gift)
         state.result.find(i => i.name === name).gift = gift
         state.showPic = true
-        state.currentGift = gift
       })
     )
     setTimeout(this.clearPic, 2000)
@@ -184,8 +184,8 @@ export default class Home extends Component {
           </div>
       }
       <div className={cls('my-dialog-layer', showPic ? "my-img--show" : 'my-img--hide')}>
-        <img src={getPic(currentGift)}
-          className="my-img" alt="logo" />
+        {currentGift && <img src={getPic(currentGift)}
+          className="my-img" alt="logo" />}
         </div>
       </div>
       )
