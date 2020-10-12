@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" charset="UTF-8" src="https://web.cdn.openinstall.io/openinstall.js"></script>
+<script type="text/javascript">
+    //OpenInstall初始化时将与OpenInstall服务器交互，应尽可能早的调用
+    /*web页面向app传递的json数据(json string/js Object)，应用被拉起或是首次安装时，通过相应的android/ios api可以获取此数据*/
+    var data = OpenInstall.parseUrlParams();///openinstall.js中提供的工具函数，解析url中的所有查询参数
+    new OpenInstall({
+        /*appKey必选参数，OpenInstall平台为每个应用分配的ID*/
+        appKey : "ep0c2i",
+        /*自定义遮罩的html*/
+        //mask:function(){
+        //  return "<div id='_shadow' style='position:fixed;left:0;top:0;background:rgba(0,255,0,0.5);filter:alpha(opacity=50);width:100%;height:100%;z-index:10000;'></div>"
+        //},
+        /*OpenInstall初始化完成的回调函数，可选*/
+        onready : function() {
+            /*在app已安装的情况尝试拉起app*/
+            this.schemeWakeup();
+          console.log(this, 'this')
+            /*用户点击某个按钮时(假定按钮id为downloadButton)，安装app*/
+            var m = this, button = document.getElementById("downloadButton");
+            button.style.visibility = "visible";
+            button.onclick = function() {
+                m.wakeupOrInstall();
+                return false;
+            }
+        }
+    }, data);
+
+</script>
+</head>
+<body>
+  <button id='downloadButton'>click me</button>
+</body>
+</html>

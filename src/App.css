@@ -1,71 +1,16 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-#root{
-  background: #880104;
-}
-
-.my-img{
+.btn{
   position: absolute;
-  width: 100%;
   left: 50%;
   top: 50%;
-transform: translateX(-50%) translateY(-50%);
+  width: 44%;
+  height: 7%;
+  transform: translateX(-50%) translateY(498%);
+  opacity: 0;
+  cursor: pointer;
 }
-.my-h2{
-  margin-top: 0;
-  text-align: center;
-}
-.my-bg{
-  background: url('http://bpic.588ku.com//back_water_img/18/09/11/142da783369cfb72d066831baeb523c5df.jpg') no-repeat;;
-  color: white;
-  background-size: contain;
-  height: 700px;
-  text-align: center;
-}
-button{
-  color: white;
-  font-size: 14px;
-  /* border: 1px solid white; */
-  /* background: transparent; */
-}
-.my-radio{
-  text-align: left;
-}
-.my-get-gift{
-  padding: 3px 0;
-}
-.my-img--show{
-  visibility: visible;
-}
-.my-img--hide{
-  visibility: hidden;
-}
-.my-dialog-layer{
+.img{
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  background: rgba(0,0,0,0.5)
+}
+.container{
+  position: relative;
 }
